@@ -49,3 +49,17 @@ section.sec1{
     background: url(assets/backgrounds/hero.jpg);
     background-size: cover;
 }
+
+#slogan{
+    font-size: 85px;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 19%;
+}
+
+#detailed-slogan{
+    padding-top: 80px;
+    font-size: 25px;
+    text-align: center;
+    color: aliceblue;
+}
