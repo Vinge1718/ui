@@ -230,16 +230,16 @@ select{
 section.sec4{
     background: url(assets/backgrounds/about.jpg);
     width: 100%;
-    height: 50.5vh;
+    height: 60.5vh;
     padding: 10px;
 }
 
 
 fieldset.about-border {
     border: 3px solid rgba(114, 85, 41, 0.938) !important;
-    width: 45%;
-    padding: 2.0em 5.4em 1.4em 5.4em !important;
-    margin: 3.5% 0 0 27% !important;
+    width: 55%;
+    padding: 2.0em 10.4em 1.4em 10.4em !important;
+    margin: 5.5% 0 0 27% !important;
     -webkit-box-shadow:  0px 0px 0px 0px #000;
             box-shadow:  0px 0px 0px 0px #000;
 }
@@ -267,14 +267,85 @@ section.sec5{
     height: 10vh;
     background: #534e58;
     font-size: 15px;
-    padding: 1.3em 0 .5px 10%;
+    padding: 1.4em 0 .5px 15%;
 }
 
 section.sec5 #promotion img{
-    margin-right: 5vh;
+    margin-right: 7vh;
 }
 
 section.sec5 #promotion{
     float: left;
     color: white;
+}
+
+/* ______________________________Contact and Footnote Section _______________________________ */
+
+section.sec6{
+    width: 100%;
+    height: 45vh;
+    background: #3a393a;
+    color: white;
+}
+
+.contact-row{
+    margin:0 0 2% 7%;
+}
+
+.contact-column {
+    /* background-color:#ccc; HELPED KEEP TRACK OF WHERE THE COLLUMNS ARE*/
+    float: left;
+    width: 22%;
+    margin: 2% 4% 0 5%;
+    height: 20vh; 
+}
+
+#contact-column1{
+    text-align: left;
+}
+
+/* #contact-column1 p{
+    padding: 0;
+    margin: 0;
+} */
+
+#contact-column2{
+    text-align: center
+}
+
+#contact-column2 img{
+    margin: 8px ;
+}
+
+#contact-column3{
+    text-align: center
+}
+
+#contact-column3 h5 span{
+    padding: 2px;
+}
+
+.contact-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    justify-content: space-between;
+}
+
+footer p{
+    font-size: 10px;
+}
+
+.copyright::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: rgba(white, .13);
+    margin: 4.0em auto;
+    width: 20%;
 }
