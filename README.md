@@ -17,7 +17,7 @@ To review the code you can either:
 
 ## Issues pending
 - Not yet implemeted mobile responsiveness.
-- Bootstrap grid is the easiet way to go about this (for me), unlike how I have manually designed the `items on sale` in this project, using bootstrap collumns or `flexbox` is more automated for you. 
+... + Bootstrap grid is the easiet way to go about this (for me), unlike how I have manually designed the `items on sale` in this project, using bootstrap collumns or `flexbox` is more automated for you. 
 
 ## License
 MIT
