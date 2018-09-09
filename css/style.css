@@ -229,8 +229,9 @@ select{
 
 section.sec4{
     background: url(assets/backgrounds/about.jpg);
+    background-repeat: no-repeat;
     width: 100%;
-    height: 60.5vh;
+    height: 50.5vh;
     padding: 10px;
 }
 
