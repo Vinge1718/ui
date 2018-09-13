@@ -53,4 +53,77 @@ jQuery(document).ready(function($){
 		});
 
     }
+
+    function addToCart1(trigger) {
+		var cartIsEmpty = cartWrapper.hasClass('empty');
+		//update cart product list
+		addProduct1();
+		//update number of items 
+		updateCartCount(cartIsEmpty);
+		//update total price
+		updateCartTotal(trigger.data('price'), true);
+		//show cart
+		cartWrapper.removeClass('empty');
+	}
+
+	function addToCart2(trigger) {
+		var cartIsEmpty = cartWrapper.hasClass('empty');
+		//update cart product list
+		addProduct2();
+		//update number of items 
+		updateCartCount(cartIsEmpty);
+		//update total price
+		updateCartTotal(trigger.data('price'), true);
+		//show cart
+		cartWrapper.removeClass('empty');
+	}
+
+	function addToCart3(trigger) {
+		var cartIsEmpty = cartWrapper.hasClass('empty');
+		//update cart product list
+		addProduct3();
+		//update number of items 
+		updateCartCount(cartIsEmpty);
+		//update total price
+		updateCartTotal(trigger.data('price'), true);
+		//show cart
+		cartWrapper.removeClass('empty');
+	}
+
+	function addToCart4(trigger) {
+		var cartIsEmpty = cartWrapper.hasClass('empty');
+		//update cart product list
+		addProduct4();
+		//update number of items 
+		updateCartCount(cartIsEmpty);
+		//update total price
+		updateCartTotal(trigger.data('price'), true);
+		//show cart
+		cartWrapper.removeClass('empty');
+	}
+
+	function addToCart5(trigger) {
+		var cartIsEmpty = cartWrapper.hasClass('empty');
+		//update cart product list
+		addProduct5();
+		//update number of items 
+		updateCartCount(cartIsEmpty);
+		//update total price
+		updateCartTotal(trigger.data('price'), true);
+		//show cart
+		cartWrapper.removeClass('empty');
+	}
+
+	function addToCart6(trigger) {
+		var cartIsEmpty = cartWrapper.hasClass('empty');
+		//update cart product list
+		addProduct6();
+		//update number of items 
+		updateCartCount(cartIsEmpty);
+		//update total price
+		updateCartTotal(trigger.data('price'), true);
+		//show cart
+		cartWrapper.removeClass('empty');
+    }
+    
 });
