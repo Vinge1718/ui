@@ -10,18 +10,18 @@ jQuery(document).ready(function($){
 		var cartTotal = cartWrapper.find('.checkout').find('span');
 		var cartTrigger = cartWrapper.children('.cd-cart-trigger');
         var cartCount = cartTrigger.children('.count')
-        // The individual items that partain to this project using unique identifiers (IDs in this case)
+//______ The individual items that partain to this project using unique identifiers (IDs in this case)
         var addToCartBtn1 = $('#black_Shirt');
 		var addToCartBtn2 = $('#grey_Pants');
 		var addToCartBtn3 = $('#dark_Bag');
 		var addToCartBtn4 = $('#green-giaket');
 		var addToCartBtn5 = $('#hiking-shoe');
         var addToCartBtn6 = $('#indigo-female-shirt');
-        // End of items ...
+//______ End of items ...
 		var undo = cartWrapper.find('.undo');
         var undoTimeoutId;
         
-        //add the products to cart for each items listed
+//______add the products to cart for each items listed
 		addToCartBtn1.on('click', function(event){
 			event.preventDefault();
 			addToCart1($(this));
@@ -52,21 +52,31 @@ jQuery(document).ready(function($){
 			addToCart6($(this));
         });
         
- //open/close cart ----------------------------- This is innitially triggered when you add an item to the cart - making the cart viscible
+ //______open/close cart ----------------------------- This is innitially triggered when you add an item to the cart - making the cart viscible
 
 		cartTrigger.on('click', function(event){
 			event.preventDefault();
 			toggleCart();
         });
         
- //close cart when clicking on the .cd-cart-container::before (bg layer)
+ //______close cart when clicking on the .cd-cart-container::before (bg layer)
 		cartWrapper.on('click', function(event){
 			if( $(event.target).is($(this)) ) toggleCart(true);
 		});
 
+//_______delete an item from the cart followed by an update function below it after deletion
+		cartList.on('click', '.delete-item', function(event){
+			event.preventDefault();
+			removeProduct($(event.target).parents('.product'));
+        });
+        
+//_______update item quantity
+		cartList.on('change', 'select', function(event){
+			quickUpdateCart();
+		});
 
     }
-    
+
 // -----------Define the cart close and open fuction called the the `cartTrigger` whose click listener prompts this function
 
     function toggleCart(bool) {
@@ -212,6 +222,48 @@ jQuery(document).ready(function($){
 		productId = productId + 1;
 		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/tshirt_ladies.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Female Top Indigo</a></h3><span class="price">$33.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
 		cartList.prepend(productAdded);
+    }
+//_________________________________Defined the function called in the click event `cartList` in the `if-statement` that calls the cart
+//  This function takes the products class as a parameter whose variable I have defined in this java file as `product`.
+//  After deletion the product `Total` count is updated and the checkout price just after deletion ....
+
+    function removeProduct(product) {
+		clearInterval(undoTimeoutId);
+		cartList.find('.deleted').remove();
+		
+		var topPosition = product.offset().top - cartBody.children('ul').offset().top ,
+			productQuantity = Number(product.find('.quantity').find('select').val()),
+			productTotPrice = Number(product.find('.price').text().replace('$', '')) * productQuantity;
+		
+		product.css('top', topPosition+'px').addClass('deleted');
+
+		//update items count + total price
+		updateCartTotal(productTotPrice, false);
+		updateCartCount(true, -productQuantity);
+		undo.addClass('visible');
+
+		//wait 8sec before completely remove the item
+		undoTimeoutId = setTimeout(function(){
+			undo.removeClass('visible');
+			cartList.find('.deleted').remove();
+		}, 8000);
+    }
+
+//_____________________Follow up update of quantity and price after deletion of items above.  
+
+    function quickUpdateCart() {
+		var quantity = 0;
+		var price = 0;
+		
+		cartList.children('li:not(.deleted)').each(function(){
+			var singleQuantity = Number($(this).find('select').val());
+			quantity = quantity + singleQuantity;
+			price = price + singleQuantity*Number($(this).find('.price').text().replace('$', ''));
+		});
+
+		cartTotal.text(price.toFixed(2));
+		cartCount.find('li').eq(0).text(quantity);
+		cartCount.find('li').eq(1).text(quantity+1);
 	}
 
 });
