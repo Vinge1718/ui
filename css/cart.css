@@ -42,3 +42,12 @@
         -ms-transform: translateY(150px);
             transform: translateY(150px);
   }
+
+  @media only screen and (min-width: 1170px) {
+    .cd-cart-trigger,
+    .cd-cart {
+      bottom: 40px;
+    }
+  }
+
+  
