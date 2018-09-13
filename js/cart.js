@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
     var cartWrapper = $('.cd-cart-container');
 
-    // Function for displaying the content on condition that the cart isn't empty--hence it's viscible
+//___________________________________________ Function for displaying the content on condition that the cart isn't empty--hence it's viscible
 
     if( cartWrapper.length > 0 ) {
         //store jQuery objects
@@ -53,6 +53,8 @@ jQuery(document).ready(function($){
 		});
 
     }
+
+//_______________________Define each function called in the case of the click event I have defined above which subsequently identify each item....
 
     function addToCart1(trigger) {
 		var cartIsEmpty = cartWrapper.hasClass('empty');
@@ -125,5 +127,55 @@ jQuery(document).ready(function($){
 		//show cart
 		cartWrapper.removeClass('empty');
     }
+
+// ____________________________________________The details pertaining to each item/product defined in the html page...
     
+    function addProduct1() {
+        //you can insert an item with the selected product information
+        //replace productId, productName, price and url with your custom product info (incase you want to test)
+		productId = productId + 1;
+		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/tshirt.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Black Shirt</a></h3><span class="price">$10.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		cartList.prepend(productAdded);
+	}
+
+	function addProduct2() {
+		//you can insert an item with the selected product information
+        //replace productId, productName, price and url with your custom product info (incase you want to test)
+		productId = productId + 1;
+		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/pants.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Brown Pants</a></h3><span class="price">$53.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		cartList.prepend(productAdded);
+	}
+
+	function addProduct3() {
+		//you can insert an item with the selected product information
+        //replace productId, productName, price and url with your custom product info (incase you want to test)
+		productId = productId + 1;
+		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/backpack.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Grey Bag</a></h3><span class="price">$33.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		cartList.prepend(productAdded);
+	}
+
+	function addProduct4() {
+		//you can insert an item with the selected product information
+        //replace productId, productName, price and url with your custom product info (incase you want to test)
+		productId = productId + 1;
+		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/giacket.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Green Jacket</a></h3><span class="price">$60.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		cartList.prepend(productAdded);
+	}
+
+	function addProduct5() {
+		//you can insert an item with the selected product information
+        //replace productId, productName, price and url with your custom product info (incase you want to test)
+		productId = productId + 1;
+		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/trekkingshoes.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Hiking Shoes</a></h3><span class="price">$80.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		cartList.prepend(productAdded);
+	}
+
+	function addProduct6() {
+		//you can insert an item with the selected product information
+        //replace productId, productName, price and url with your custom product info (incase you want to test)
+		productId = productId + 1;
+		var productAdded = $('<li class="product"> <div class="product-image"><a href="#0"><img src="css/assets/products/tshirt_ladies.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Female Top Indigo</a></h3><span class="price">$33.00</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		cartList.prepend(productAdded);
+	}
+
 });
