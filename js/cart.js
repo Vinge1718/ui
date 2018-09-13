@@ -73,8 +73,19 @@ jQuery(document).ready(function($){
 //_______update item quantity
 		cartList.on('change', 'select', function(event){
 			quickUpdateCart();
-		});
-
+        });
+        
+//_______reinsert item deleted from the cart
+		undo.on('click', 'a', function(event){
+			clearInterval(undoTimeoutId);
+			event.preventDefault();
+			cartList.find('.deleted').addClass('undo-deleted').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
+				$(this).off('webkitAnimationEnd oanimationend msAnimationEnd animationend').removeClass('deleted undo-deleted').removeAttr('style');
+				quickUpdateCart();
+			});
+			undo.removeClass('visible');
+        });
+        
     }
 
 // -----------Define the cart close and open fuction called the the `cartTrigger` whose click listener prompts this function
@@ -264,6 +275,48 @@ jQuery(document).ready(function($){
 		cartTotal.text(price.toFixed(2));
 		cartCount.find('li').eq(0).text(quantity);
 		cartCount.find('li').eq(1).text(quantity+1);
+    }
+    
+// _____________This function is called every time you click on an "ADD TO CART" icon which adds an item to the list 
+// by checking if it was already available in the cart and adding to the count (DEFINED ABOVE) if already there
+
+    function updateCartCount(emptyCart, quantity) {
+		if( typeof quantity === 'undefined' ) {
+			var actual = Number(cartCount.find('li').eq(0).text()) + 1;
+			var next = actual + 1;
+			
+			if( emptyCart ) {
+				cartCount.find('li').eq(0).text(actual);
+				cartCount.find('li').eq(1).text(next);
+			} else {
+				cartCount.addClass('update-count');
+
+				setTimeout(function() {
+					cartCount.find('li').eq(0).text(actual);
+				}, 150);
+
+				setTimeout(function() {
+					cartCount.removeClass('update-count');
+				}, 200);
+
+				setTimeout(function() {
+					cartCount.find('li').eq(1).text(next);
+				}, 230);
+			}
+		} else {
+			var actual = Number(cartCount.find('li').eq(0).text()) + quantity;
+			var next = actual + 1;
+			
+			cartCount.find('li').eq(0).text(actual);
+			cartCount.find('li').eq(1).text(next);
+		}
+    }
+
+//__________ This takes the price variable and the condition of whether the cart is empty adds the total prices on the list 
+// and converts the result to text.....
+    
+    function updateCartTotal(price, bool) {
+		bool ? cartTotal.text( (Number(cartTotal.text()) + Number(price)).toFixed(2) )  : cartTotal.text( (Number(cartTotal.text()) - Number(price)).toFixed(2) );
 	}
 
 });
