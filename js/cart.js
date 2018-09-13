@@ -50,9 +50,45 @@ jQuery(document).ready(function($){
 		addToCartBtn6.on('click', function(event){
 			event.preventDefault();
 			addToCart6($(this));
+        });
+        
+ //open/close cart ----------------------------- This is innitially triggered when you add an item to the cart - making the cart viscible
+
+		cartTrigger.on('click', function(event){
+			event.preventDefault();
+			toggleCart();
+        });
+        
+ //close cart when clicking on the .cd-cart-container::before (bg layer)
+		cartWrapper.on('click', function(event){
+			if( $(event.target).is($(this)) ) toggleCart(true);
 		});
 
+
     }
+    
+// -----------Define the cart close and open fuction called the the `cartTrigger` whose click listener prompts this function
+
+    function toggleCart(bool) {
+		var cartIsOpen = ( typeof bool === 'undefined' ) ? cartWrapper.hasClass('cart-open') : bool;
+		
+		if( cartIsOpen ) {
+			cartWrapper.removeClass('cart-open');
+			//reset undo
+			clearInterval(undoTimeoutId);
+			undo.removeClass('visible');
+			cartList.find('.deleted').remove();
+
+			setTimeout(function(){
+				cartBody.scrollTop(0);
+				//check if cart empty to hide it
+				if( Number(cartCount.find('li').eq(0).text()) == 0) cartWrapper.addClass('empty');
+			}, 500);
+		} else {
+			cartWrapper.addClass('cart-open');
+		}
+	}
+
 
 //_______________________Define each function called in the case of the click event I have defined above which subsequently identify each item....
 
