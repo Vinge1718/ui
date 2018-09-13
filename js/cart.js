@@ -1,5 +1,6 @@
 jQuery(document).ready(function($){
-    var cartWrapper = $('.cd-cart-container');
+	var cartWrapper = $('.cd-cart-container');
+	var productId = 0;
 
 //___________________________________________ Function for displaying the content on condition that the cart isn't empty--hence it's viscible
 
@@ -318,5 +319,4 @@ jQuery(document).ready(function($){
     function updateCartTotal(price, bool) {
 		bool ? cartTotal.text( (Number(cartTotal.text()) + Number(price)).toFixed(2) )  : cartTotal.text( (Number(cartTotal.text()) - Number(price)).toFixed(2) );
 	}
-
 });
