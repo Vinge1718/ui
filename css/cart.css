@@ -12,15 +12,15 @@
     visibility: hidden;
     -webkit-transition: opacity .4s, visibility .4s;
     transition: opacity .4s, visibility .4s;
-  }
+}
   
-  .cd-cart-container.cart-open::before {
+.cd-cart-container.cart-open::before {
     opacity: 1;
     visibility: visible;
-  }
+}
   
-  .cd-cart-trigger,
-  .cd-cart {
+.cd-cart-trigger,
+.cd-cart {
     position: fixed;
     bottom: 20px;
     right: 5%;
@@ -34,20 +34,49 @@
     -webkit-backface-visibility: hidden;
     will-change: transform;
     backface-visibility: hidden;
-  }
-  .empty .cd-cart-trigger, .empty
-  .cd-cart {
-    /* hide cart */
+}
+.empty .cd-cart-trigger, .empty
+.cd-cart {
+/* hide cart */
     -webkit-transform: translateY(150px);
         -ms-transform: translateY(150px);
             transform: translateY(150px);
-  }
+}
 
-  @media only screen and (min-width: 1170px) {
+@media only screen and (min-width: 1170px) {
     .cd-cart-trigger,
     .cd-cart {
-      bottom: 40px;
+        bottom: 40px;
     }
-  }
+}
 
-  
+.cd-cart-trigger {
+/* button that triggers the cart content */
+    z-index: 3;
+    height: 72px;
+    width: 72px;
+/* replace text with image */
+    text-indent: 100%;
+    color: transparent;
+    white-space: nowrap;
+}
+
+.cd-cart-trigger::after, .cd-cart-trigger::before {
+/* used to create the cart/'X' icon */
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    height: 100%;
+    width: 100%;
+    background: url(../img/cd-icons-cart-close.svg) no-repeat 0 0;
+    -webkit-transition: opacity .2s, -webkit-transform .2s;
+    transition: opacity .2s, -webkit-transform .2s;
+    transition: opacity .2s, transform .2s;
+    transition: opacity .2s, transform .2s, -webkit-transform .2s;
+}
