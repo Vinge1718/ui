@@ -87,7 +87,7 @@ section.sec1 img{
 
 section.sec2{
     width: 100%;
-    height: 22vh;
+    height: 17vh;
     background: #d1c9b5;
     padding: 65px;
     font-size: 20px;
@@ -269,7 +269,7 @@ section.sec5{
     height: 10vh;
     background: #534e58;
     font-size: 15px;
-    padding: 1.4em 0 .5px 15%;
+    padding: 2.3em 0 .5px 15%;
 }
 
 section.sec5 #promotion img{
@@ -285,7 +285,7 @@ section.sec5 #promotion{
 
 section.sec6{
     width: 100%;
-    height: 45vh;
+    height: 40vh;
     background: #3a393a;
     color: white;
 }
